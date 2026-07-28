@@ -1,13 +1,13 @@
-import { useContext } from "react";
+import { useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
-import { AuthContext } from "../context/AuthContext";
+import { login } from "../store/slices/authSlice";
 
 function Login() {
-  const { login } = useContext(AuthContext);
+  const dispatch = useDispatch();
   const navigate = useNavigate();
 
   const handleLogin = () => {
-    login();
+    dispatch(login());
     navigate("/dashboard");
   };
 
