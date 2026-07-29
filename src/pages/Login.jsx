@@ -1,6 +1,6 @@
 import { useDispatch } from "react-redux";
-import { useNavigate } from "react-router-dom";
 import { login } from "../store/slices/authSlice";
+import { useNavigate } from "react-router-dom";
 
 function Login() {
   const dispatch = useDispatch();
@@ -12,12 +12,25 @@ function Login() {
   };
 
   return (
-    <div>
-      <h1>Login Page</h1>
+    <div className="login-container">
+      <div className="login-card">
+        <h1>Welcome!</h1>
+        <p>Sign in to continue to Employee Portal</p>
 
-      <button onClick={handleLogin}>
-        Login
-      </button>
+        <input
+          type="email"
+          placeholder="Email Address"
+        />
+
+        <input
+          type="password"
+          placeholder="Password"
+        />
+
+        <button onClick={handleLogin}>
+          Login
+        </button>
+      </div>
     </div>
   );
 }

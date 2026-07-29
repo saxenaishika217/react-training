@@ -1,6 +1,6 @@
 import { useDispatch } from "react-redux";
-import { useNavigate } from "react-router-dom";
 import { logout } from "../store/slices/authSlice";
+import { useNavigate } from "react-router-dom";
 
 function Dashboard() {
   const dispatch = useDispatch();
@@ -12,12 +12,23 @@ function Dashboard() {
   };
 
   return (
-    <div>
-      <h1>Dashboard</h1>
+    <div className="dashboard-container">
+      <div className="dashboard-card">
+        <h1>Welcome, Admin!</h1>
+        <p>Manage your employees from here.</p>
 
-      <button onClick={handleLogout}>
-        Logout
-      </button>
+        <button onClick={() => alert("Feature Coming Soon!")}>
+          Add Employee
+        </button>
+
+        <button onClick={() => navigate("/")}>
+          View Employees
+        </button>
+
+        <button onClick={handleLogout}>
+          Logout
+        </button>
+      </div>
     </div>
   );
 }
