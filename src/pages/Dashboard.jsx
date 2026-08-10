@@ -22,7 +22,13 @@ function Dashboard() {
         <h1>Welcome, Admin!</h1>
         <p>Manage your employees from here.</p>
 
-        <button onClick={() => alert('Feature Coming Soon!')}>
+        <button
+          id="add-employee"
+          onClick={() =>
+            //eslint-disable-next-line no-alert
+            alert('Feature Coming Soon!')
+          }
+        >
           Add Employee
         </button>
 
