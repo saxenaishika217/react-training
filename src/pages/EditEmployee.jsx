@@ -22,20 +22,17 @@ function EditEmployee() {
   const handleSubmit = async (event) => {
     event.preventDefault();
 
-    const response = await fetch(
-      `http://localhost:3000/api/employees/${id}`,
-      {
-        method: 'PUT',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({
-          name,
-          role,
-          experience,
-        }),
-      }
-    );
+    const response = await fetch(`http://localhost:3000/api/employees/${id}`, {
+      method: 'PUT',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({
+        name,
+        role,
+        experience,
+      }),
+    });
 
     if (response.ok) {
       navigate('/');

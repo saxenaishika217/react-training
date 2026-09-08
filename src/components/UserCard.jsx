@@ -3,7 +3,6 @@ import { useNavigate } from 'react-router-dom';
 import PropTypes from 'prop-types';
 
 function UserCard({ id, name, role, experience, onDelete }) {
-
   const navigate = useNavigate();
   return (
     <div className="user-card">
@@ -11,10 +10,9 @@ function UserCard({ id, name, role, experience, onDelete }) {
       <p>Role: {role}</p>
       <p>Experience: {experience}</p>
 
-      <button onClick={()=> onDelete(id)}>Delete</button>
+      <button onClick={() => onDelete(id)}>Delete</button>
 
-      <button onClick={()=> navigate(`/edit-employee/${id}`)}>Edit</button>
-
+      <button onClick={() => navigate(`/edit-employee/${id}`)}>Edit</button>
     </div>
   );
 }

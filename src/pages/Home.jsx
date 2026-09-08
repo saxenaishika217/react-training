@@ -4,26 +4,21 @@ import UserCard from '../components/UserCard';
 
 function Home() {
   const [users, setUsers] = useState([]);
-  useEffect(()=> {
-    fetch('http://localhost:3000/api/employees').then((response)=> response.json()).then((data)=>setUsers(data));
-  },[]);
+  useEffect(() => {
+    fetch('http://localhost:3000/api/employees')
+      .then((response) => response.json())
+      .then((data) => setUsers(data));
+  }, []);
 
   const handleDelete = async (id) => {
-  const response = await fetch(
-    `http://localhost:3000/api/employees/${id}`,
-    {
+    const response = await fetch(`http://localhost:3000/api/employees/${id}`, {
       method: 'DELETE',
+    });
+
+    if (response.ok) {
+      setUsers((currentUsers) => currentUsers.filter((user) => user.id !== id));
     }
-  );
-
-  if (response.ok) {
-    setUsers((currentUsers) =>
-      currentUsers.filter((user) => user.id !== id)
-    );
-  }
-};
-
-
+  };
 
   const navigate = useNavigate();
 

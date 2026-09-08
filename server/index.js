@@ -86,9 +86,7 @@ app.post('/api/employees', (req, res) => {
 app.put('/api/employees/:id', (req, res) => {
   const id = Number(req.params.id);
 
-  const employeeIndex = employees.findIndex(
-    (employee) => employee.id === id
-  );
+  const employeeIndex = employees.findIndex((employee) => employee.id === id);
 
   if (employeeIndex === -1) {
     return res.status(404).json({
@@ -139,9 +137,7 @@ app.patch('/api/employees/:id', (req, res) => {
 app.delete('/api/employees/:id', (req, res) => {
   const id = Number(req.params.id);
 
-  const employeeIndex = employees.findIndex(
-    (employee) => employee.id === id
-  );
+  const employeeIndex = employees.findIndex((employee) => employee.id === id);
 
   if (employeeIndex === -1) {
     return res.status(404).json({

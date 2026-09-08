@@ -22,10 +22,7 @@ function Dashboard() {
         <h1>Welcome, Admin!</h1>
         <p>Manage your employees from here.</p>
 
-        <button
-          id="add-employee"
-          onClick={() => navigate('/add-employee')}
-        >
+        <button id="add-employee" onClick={() => navigate('/add-employee')}>
           Add Employee
         </button>
 
