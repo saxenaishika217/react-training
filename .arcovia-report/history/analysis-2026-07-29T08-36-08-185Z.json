@@ -1,0 +1,935 @@
+{
+  "metadata": {
+    "cliVersion": "0.2.0",
+    "duration": 383.4881,
+    "engineVersion": "0.2.0",
+    "generatedAt": "2026-07-29T08:35:09.364Z",
+    "nodeVersion": "v24.18.0",
+    "os": "unknown",
+    "platform": "unknown",
+    "schema": "https://schema.arcovia.dev/analysis/v1",
+    "version": "1.0.0"
+  },
+  "project": {
+    "components": 11,
+    "framework": "react",
+    "id": "03af24e95f0ff01b027a8cd0f9296d290e28a69be0e3baa21eaf8dd8be661259",
+    "modules": 16,
+    "name": "react-training",
+    "packageManager": "npm",
+    "root": ".",
+    "sourceFiles": 16,
+    "workspace": "single-package"
+  },
+  "summary": {
+    "critical": 0,
+    "errors": 0,
+    "grade": "A+",
+    "info": 1,
+    "overallScore": 98.52,
+    "totalFindings": 2,
+    "warnings": 1
+  },
+  "metrics": {
+    "components": 11,
+    "contexts": 1,
+    "dependencies": 40,
+    "exports": 1,
+    "hooks": 7,
+    "imports": 40,
+    "linesOfCode": 366,
+    "modules": 16,
+    "packages": 12,
+    "routes": 3
+  },
+  "score": {
+    "breakdown": {
+      "categoryWeightedScore": 99.7,
+      "criticalRiskAdjustment": 0,
+      "maintenanceBurden": 1.18,
+      "contributors": [
+        {
+          "detail": "Capped adjustment for the total volume of warning and informational debt.",
+          "impact": 1.18,
+          "label": "Maintenance burden",
+          "type": "maintenance-burden"
+        },
+        {
+          "detail": "99/100 across its 30% score weight.",
+          "impact": 0.3,
+          "label": "Architecture category",
+          "type": "category"
+        }
+      ],
+      "deductions": [
+        {
+          "category": "architecture",
+          "findingCount": 1,
+          "penalty": 1,
+          "reason": "Orphan module",
+          "ruleId": "orphan-module",
+          "weight": 1
+        },
+        {
+          "category": "imports",
+          "findingCount": 1,
+          "penalty": 0.01,
+          "reason": "Export has no internal usage",
+          "ruleId": "unused-export",
+          "weight": 0.1
+        }
+      ],
+      "strengths": [
+        "8 of 8 score categories are at or above 90.",
+        "No circular module dependencies across 30 modules.",
+        "No critical architecture findings were detected."
+      ],
+      "summary": "The project demonstrates a strong overall architecture across 30 modules with no dependency cycles. Most opportunities are concentrated in architecture, while complexity remains healthy.",
+      "weaknesses": []
+    },
+    "categories": [
+      {
+        "category": "architecture",
+        "penalty": 1,
+        "score": 99,
+        "weight": 30
+      },
+      {
+        "category": "complexity",
+        "penalty": 0,
+        "score": 100,
+        "weight": 10
+      },
+      {
+        "category": "components",
+        "penalty": 0,
+        "score": 100,
+        "weight": 15
+      },
+      {
+        "category": "context",
+        "penalty": 0,
+        "score": 100,
+        "weight": 5
+      },
+      {
+        "category": "hooks",
+        "penalty": 0,
+        "score": 100,
+        "weight": 10
+      },
+      {
+        "category": "imports",
+        "penalty": 0.01,
+        "score": 99.99,
+        "weight": 15
+      },
+      {
+        "category": "performance",
+        "penalty": 0,
+        "score": 100,
+        "weight": 10
+      },
+      {
+        "category": "routes",
+        "penalty": 0,
+        "score": 100,
+        "weight": 5
+      }
+    ],
+    "grade": "A+",
+    "metadata": {
+      "confidence": {
+        "reason": "Complete parser coverage across 16 files.",
+        "value": 100
+      },
+      "criticalFindings": 0,
+      "duplicateFindingsIgnored": 0,
+      "errorFindings": 0,
+      "normalizedFindingCount": 2,
+      "warningFindings": 1
+    },
+    "overall": 98.52
+  },
+  "findings": [
+    {
+      "category": "architecture",
+      "description": "src/components/Button.jsx has no incoming or outgoing dependencies.",
+      "evidence": [],
+      "id": "6559e0c24d4c4096222f899f810e49dd1aa74a22cac6f67f3c1c417c31396793",
+      "location": {
+        "column": 1,
+        "file": "src/components/Button.jsx",
+        "line": 1,
+        "symbol": null
+      },
+      "metadata": {},
+      "rationale": "Isolated modules may be dead code or misplaced implementation.",
+      "recommendation": "Delete the module or integrate it into the relevant feature.",
+      "ruleId": "orphan-module",
+      "severity": "warning",
+      "title": "Orphan module"
+    },
+    {
+      "category": "imports",
+      "description": "AuthContext is not imported by another scanned module.",
+      "evidence": [
+        {
+          "actual": "AuthContext",
+          "metric": "export",
+          "recommended": null
+        }
+      ],
+      "id": "9baa12fb7e3ef7b7b2aa700a22b86c474591e41f4a129076de50fa1ec4d4bc4b",
+      "location": {
+        "column": 1,
+        "file": "src/context/AuthContext.jsx",
+        "line": 3,
+        "symbol": null
+      },
+      "metadata": {},
+      "rationale": "Unused exports enlarge public module APIs and increase maintenance cost.",
+      "recommendation": "Remove the export or document its external consumer.",
+      "ruleId": "unused-export",
+      "severity": "info",
+      "title": "Export has no internal usage"
+    }
+  ],
+  "graph": {
+    "nodes": [
+      {
+        "id": "001e0e58e3258a1fd9559dac3cdb97f5a2b15d36addda5d83e469004db7d4041",
+        "label": "authSlice.js",
+        "metadata": {
+          "fileId": "0e14e1cb3f506ee21071781be19517b356c791f8a41796e17393cfdaa41977f5",
+          "functionCount": 0,
+          "lineCount": 23
+        },
+        "path": "src/store/slices/authSlice.js",
+        "type": "module"
+      },
+      {
+        "id": "14f0ff256ac15678c5b63a2529df0632f96f5d30c1ae5019d97e6312a476f616",
+        "label": "eslint/config",
+        "metadata": {},
+        "path": "eslint/config",
+        "type": "package"
+      },
+      {
+        "id": "27f9789282be6c652b0bff79c84684fefaed97a61240be03cd85efe29e3f0668",
+        "label": "vite.config.js",
+        "metadata": {
+          "fileId": "58e6f63d87181b1c6a8cb6e5f1691df04aa32854456efcd52ca71c8541375d26",
+          "functionCount": 0,
+          "lineCount": 8
+        },
+        "path": "vite.config.js",
+        "type": "module"
+      },
+      {
+        "id": "2a04b333b3889c992181a52d08767887c53daad88babd7c5b49f6c0cde3aadd1",
+        "label": "Navbar.jsx",
+        "metadata": {
+          "fileId": "0b9e115b879d5389a7caf5029cd442d7358dbdeffd27469a478ad90752ed3d54",
+          "functionCount": 1,
+          "lineCount": 29
+        },
+        "path": "src/components/Navbar.jsx",
+        "type": "module"
+      },
+      {
+        "id": "2af22302e288ca88c8deaa9cb6d8ebd11f887b0cf2426241cfe54971c84c5ae1",
+        "label": "ProtectedRoute.jsx",
+        "metadata": {
+          "fileId": "3cf225efdd3249cdbb4a00079ee96c37c812770558b71eb662ee96b5d2897958",
+          "functionCount": 1,
+          "lineCount": 12
+        },
+        "path": "src/components/ProtectedRoute.jsx",
+        "type": "module"
+      },
+      {
+        "id": "2cade511fbbbffa3313858a712f34c2addfad8246311ba34155452d5ec55f49e",
+        "label": "react",
+        "metadata": {},
+        "path": "react",
+        "type": "package"
+      },
+      {
+        "id": "2e2f6a49e2aa8e8304b1b5514b8375571109a68aacad9cdd00980ccc4ad15af3",
+        "label": "react-redux",
+        "metadata": {},
+        "path": "react-redux",
+        "type": "package"
+      },
+      {
+        "id": "3d15da2aeb08899c56c031c8497bb2d8c2bf756a2e8a5eaaa3c5240dcfae838a",
+        "label": "main.jsx",
+        "metadata": {
+          "fileId": "752aae33033979082689dba3e7f51955013615f0535c21ac94265e067da311ed",
+          "functionCount": 0,
+          "lineCount": 22
+        },
+        "path": "src/main.jsx",
+        "type": "module"
+      },
+      {
+        "id": "481c7a10a65484a84f557dea7184b96ca19dc51f281e519089f4d447f4019dfc",
+        "label": "App.jsx",
+        "metadata": {
+          "fileId": "d274a54187c91ba0f532df2a9e194e27ab50e988f5e4c33f5a7893918320c661",
+          "functionCount": 1,
+          "lineCount": 9
+        },
+        "path": "src/App.jsx",
+        "type": "module"
+      },
+      {
+        "id": "48f6cd9a81ca48243b1b893a934c170de7efdc0c2f1e844182a1dc72387d322c",
+        "label": "MainLayout.jsx",
+        "metadata": {
+          "fileId": "5acca11372ffaa5941146d3517b6161b55bf8e00b07a758b43b36185e8e86e81",
+          "functionCount": 1,
+          "lineCount": 13
+        },
+        "path": "src/layouts/MainLayout.jsx",
+        "type": "module"
+      },
+      {
+        "id": "830f79bffc1eaa4018157b2b93255dc356f13b7ba254e8535db4d7e2496f8bae",
+        "label": "eslint-plugin-react-refresh",
+        "metadata": {},
+        "path": "eslint-plugin-react-refresh",
+        "type": "package"
+      },
+      {
+        "id": "887ee28d73bbe7bfd0834e40cf2907214da8bdf7d67c6c30045ed283f57e39b5",
+        "label": "eslint.config.js",
+        "metadata": {
+          "fileId": "a32a0887ed9d1d707bbb3b845b7df7fd40e673c47e7b60a3ebd896b68d3b8839",
+          "functionCount": 0,
+          "lineCount": 22
+        },
+        "path": "eslint.config.js",
+        "type": "module"
+      },
+      {
+        "id": "8e4f54d7919a6d3447ada2c5470add12ea57bb54db52507c3abd1ba2752e6b18",
+        "label": "./index.css",
+        "metadata": {
+          "missing": true
+        },
+        "path": "index.css",
+        "type": "missing"
+      },
+      {
+        "id": "92032a9a18fe309a501c0a54800ec50e06a03912e157ffae175f7889effda55b",
+        "label": "vite",
+        "metadata": {},
+        "path": "vite",
+        "type": "package"
+      },
+      {
+        "id": "95dfeb5f59c8428a1bfb5e9b60f78e146f6153518e8aadfc25e65e3b7e8e88ce",
+        "label": "react-dom/client",
+        "metadata": {},
+        "path": "react-dom/client",
+        "type": "package"
+      },
+      {
+        "id": "95e0b7608dbd8822b6810d72a092fe479d9e0e86849c44a91c6ce601a6e72b8d",
+        "label": "react-router-dom",
+        "metadata": {},
+        "path": "react-router-dom",
+        "type": "package"
+      },
+      {
+        "id": "995e68c2a45c5b61f409555b59ba45ebff3026fdd96c8f7a81e84ba9c032ec7d",
+        "label": "./App.css",
+        "metadata": {
+          "missing": true
+        },
+        "path": "App.css",
+        "type": "missing"
+      },
+      {
+        "id": "9ff6a3150b1f334cb41cc41ac7c8364ff06b7664faf2ef0cc5fb7c38d7d2f300",
+        "label": "globals",
+        "metadata": {},
+        "path": "globals",
+        "type": "package"
+      },
+      {
+        "id": "a1c4f7bf034b2253e49590c9abe984351cc43f6d74497cc4295b0ab1ccf763c7",
+        "label": "eslint-plugin-react-hooks",
+        "metadata": {},
+        "path": "eslint-plugin-react-hooks",
+        "type": "package"
+      },
+      {
+        "id": "ae64d0e07205bd40ff87616cd3c31514403e8a21b61e2fa576bad187fae897e2",
+        "label": "UserCard.jsx",
+        "metadata": {
+          "fileId": "e0ca71ff335b94e6d43d709b892c0294bd2d90692e8b115d29eb5f6bd0a488d5",
+          "functionCount": 1,
+          "lineCount": 12
+        },
+        "path": "src/components/UserCard.jsx",
+        "type": "module"
+      },
+      {
+        "id": "b3f32589c7c0c31efc0ce2fb08b3afdd1986678a37fb520a6c030807e7a08693",
+        "label": "Home.jsx",
+        "metadata": {
+          "fileId": "3f516fbdeb9a7ec0382eddb852845968f9cdaa1cff026ac0ce8fdf1fd351cc17",
+          "functionCount": 1,
+          "lineCount": 63
+        },
+        "path": "src/pages/Home.jsx",
+        "type": "module"
+      },
+      {
+        "id": "ba379a2231b48ad7421853219c895c208080530b84528a8942a97fd7be7ba2e9",
+        "label": "Button.jsx",
+        "metadata": {
+          "fileId": "144958786aadb84385786e80b975076752de65e87e3ade00f5df0595032d237e",
+          "functionCount": 1,
+          "lineCount": 7
+        },
+        "path": "src/components/Button.jsx",
+        "type": "module"
+      },
+      {
+        "id": "c8546055294b732c6b5c973a57c3ef775265dbd5d47dd6996a629f54d040adb6",
+        "label": "@vitejs/plugin-react",
+        "metadata": {},
+        "path": "@vitejs/plugin-react",
+        "type": "package"
+      },
+      {
+        "id": "e024e12b02c82cb44e0941efb014c20ef0c804bafc02a1a480d4642f8a5ab3b2",
+        "label": "Login.jsx",
+        "metadata": {
+          "fileId": "c0ba5a0f79600a67aa7a9bd6dd7e292a0d8cb1819c4ec9604c49d55975e6b803",
+          "functionCount": 1,
+          "lineCount": 39
+        },
+        "path": "src/pages/Login.jsx",
+        "type": "module"
+      },
+      {
+        "id": "e3c2fd4483b167ab08bf515bc5e36553eab1785c987c07c6b21fa047d1e3c3ad",
+        "label": "@reduxjs/toolkit",
+        "metadata": {},
+        "path": "@reduxjs/toolkit",
+        "type": "package"
+      },
+      {
+        "id": "eeeea4be2684c85a3c6b7b851543025335e845b23ff561f2f6c07c8b38f1b4f6",
+        "label": "AppRoutes.jsx",
+        "metadata": {
+          "fileId": "b0a738e22cb0d869c05be13ae69961db0ff96545dbfbec8626495592177e084d",
+          "functionCount": 1,
+          "lineCount": 29
+        },
+        "path": "src/routes/AppRoutes.jsx",
+        "type": "module"
+      },
+      {
+        "id": "f62278676189c430f3b1af51bb8c87b2d03b10309509451653ed96bbfb56b7ed",
+        "label": "store.js",
+        "metadata": {
+          "fileId": "4e04f06ce662924dbd8e2e8bc6ed687805d9c9f123d5d75b31e4c4efbedf9188",
+          "functionCount": 0,
+          "lineCount": 11
+        },
+        "path": "src/store/store.js",
+        "type": "module"
+      },
+      {
+        "id": "f8493efd23d0722295a4f0077fe8e54d313646c22b338250012ce2eda8440af9",
+        "label": "AuthContext.jsx",
+        "metadata": {
+          "fileId": "98a1f45af2dcd59433d60d3261a2df5de9d187164cbed4b1a148883b33b823da",
+          "functionCount": 1,
+          "lineCount": 30
+        },
+        "path": "src/context/AuthContext.jsx",
+        "type": "module"
+      },
+      {
+        "id": "fa8ce82dd49ac50cfe6f10a4e2317c0f294e98b52449c48f782a5ad851fb2bfb",
+        "label": "@eslint/js",
+        "metadata": {},
+        "path": "@eslint/js",
+        "type": "package"
+      },
+      {
+        "id": "fa93f4365d7b46f3729b8d1a190cfd4f26a4e2fea6aaaeb06c5f3a5857516c6d",
+        "label": "Dashboard.jsx",
+        "metadata": {
+          "fileId": "f7da0d332b5bda982eec3cd84de84df2c5c41dbc94775efce45c4ae3f60c1f07",
+          "functionCount": 1,
+          "lineCount": 37
+        },
+        "path": "src/pages/Dashboard.jsx",
+        "type": "module"
+      }
+    ],
+    "edges": [
+      {
+        "id": "03b430a11d87ff3df7dded820dce189810aa8ba3118ba1a35b39d9b4df645ba1",
+        "isBroken": false,
+        "isDynamic": false,
+        "isExternal": false,
+        "source": "eeeea4be2684c85a3c6b7b851543025335e845b23ff561f2f6c07c8b38f1b4f6",
+        "target": "e024e12b02c82cb44e0941efb014c20ef0c804bafc02a1a480d4642f8a5ab3b2",
+        "type": "import"
+      },
+      {
+        "id": "0c0e55128df7aeb5214cc5c9bdec9b12449426ae029c063bd4f162ac4fb97ad3",
+        "isBroken": false,
+        "isDynamic": false,
+        "isExternal": true,
+        "source": "3d15da2aeb08899c56c031c8497bb2d8c2bf756a2e8a5eaaa3c5240dcfae838a",
+        "target": "2cade511fbbbffa3313858a712f34c2addfad8246311ba34155452d5ec55f49e",
+        "type": "import"
+      },
+      {
+        "id": "18cc824362720fe007cab93d98fcec365fe9623df9b1d3c74656e364e857bb74",
+        "isBroken": false,
+        "isDynamic": false,
+        "isExternal": false,
+        "source": "3d15da2aeb08899c56c031c8497bb2d8c2bf756a2e8a5eaaa3c5240dcfae838a",
+        "target": "f8493efd23d0722295a4f0077fe8e54d313646c22b338250012ce2eda8440af9",
+        "type": "import"
+      },
+      {
+        "id": "20060ef65c42edacae77182d276a45047246051c02db04e247544fc202e27634",
+        "isBroken": false,
+        "isDynamic": false,
+        "isExternal": true,
+        "source": "887ee28d73bbe7bfd0834e40cf2907214da8bdf7d67c6c30045ed283f57e39b5",
+        "target": "830f79bffc1eaa4018157b2b93255dc356f13b7ba254e8535db4d7e2496f8bae",
+        "type": "import"
+      },
+      {
+        "id": "2d9a53de88787f8f7d93807d74dece0034d4f5fb580fed481f271ce1f4c8564b",
+        "isBroken": false,
+        "isDynamic": false,
+        "isExternal": true,
+        "source": "eeeea4be2684c85a3c6b7b851543025335e845b23ff561f2f6c07c8b38f1b4f6",
+        "target": "95e0b7608dbd8822b6810d72a092fe479d9e0e86849c44a91c6ce601a6e72b8d",
+        "type": "import"
+      },
+      {
+        "id": "30feb9cf090c3d33154eed4fb9a9efa336c444819baa7ce902f43959b4945dd7",
+        "isBroken": false,
+        "isDynamic": false,
+        "isExternal": true,
+        "source": "f8493efd23d0722295a4f0077fe8e54d313646c22b338250012ce2eda8440af9",
+        "target": "2cade511fbbbffa3313858a712f34c2addfad8246311ba34155452d5ec55f49e",
+        "type": "import"
+      },
+      {
+        "id": "322ef3e7092c8d24283b81c678fa003a061687d4415bef5ed4e319ad55a85063",
+        "isBroken": false,
+        "isDynamic": false,
+        "isExternal": false,
+        "source": "3d15da2aeb08899c56c031c8497bb2d8c2bf756a2e8a5eaaa3c5240dcfae838a",
+        "target": "f62278676189c430f3b1af51bb8c87b2d03b10309509451653ed96bbfb56b7ed",
+        "type": "import"
+      },
+      {
+        "id": "3c528d3f65e5ddce2550d90f6b47d4c16688eb1a370fe0cd11c03abc65c65467",
+        "isBroken": false,
+        "isDynamic": false,
+        "isExternal": true,
+        "source": "27f9789282be6c652b0bff79c84684fefaed97a61240be03cd85efe29e3f0668",
+        "target": "92032a9a18fe309a501c0a54800ec50e06a03912e157ffae175f7889effda55b",
+        "type": "import"
+      },
+      {
+        "id": "424f5259596c5ed3e14508819ee252db526264d8c25764300fd1d877c0343dac",
+        "isBroken": false,
+        "isDynamic": false,
+        "isExternal": true,
+        "source": "3d15da2aeb08899c56c031c8497bb2d8c2bf756a2e8a5eaaa3c5240dcfae838a",
+        "target": "2e2f6a49e2aa8e8304b1b5514b8375571109a68aacad9cdd00980ccc4ad15af3",
+        "type": "import"
+      },
+      {
+        "id": "59ab274f63b10f534582be8825481c0c102eaeea115d25482a9c76674493d88f",
+        "isBroken": false,
+        "isDynamic": false,
+        "isExternal": true,
+        "source": "e024e12b02c82cb44e0941efb014c20ef0c804bafc02a1a480d4642f8a5ab3b2",
+        "target": "2e2f6a49e2aa8e8304b1b5514b8375571109a68aacad9cdd00980ccc4ad15af3",
+        "type": "import"
+      },
+      {
+        "id": "5bad04c4c6d530ea3f2bdf8588532b330261d2d81c946ba32e03c920b468caa8",
+        "isBroken": false,
+        "isDynamic": false,
+        "isExternal": true,
+        "source": "2a04b333b3889c992181a52d08767887c53daad88babd7c5b49f6c0cde3aadd1",
+        "target": "95e0b7608dbd8822b6810d72a092fe479d9e0e86849c44a91c6ce601a6e72b8d",
+        "type": "import"
+      },
+      {
+        "id": "5c5217baabc994e1ba316e3cbd8445966565ba736e2514f1aa259f0cbd70608d",
+        "isBroken": false,
+        "isDynamic": false,
+        "isExternal": false,
+        "source": "eeeea4be2684c85a3c6b7b851543025335e845b23ff561f2f6c07c8b38f1b4f6",
+        "target": "2af22302e288ca88c8deaa9cb6d8ebd11f887b0cf2426241cfe54971c84c5ae1",
+        "type": "import"
+      },
+      {
+        "id": "5ed7e4d4726b0dd329314a65c8c7a753f145b2f46ae731d74cbd259a3f9ecf06",
+        "isBroken": true,
+        "isDynamic": false,
+        "isExternal": false,
+        "source": "481c7a10a65484a84f557dea7184b96ca19dc51f281e519089f4d447f4019dfc",
+        "target": "995e68c2a45c5b61f409555b59ba45ebff3026fdd96c8f7a81e84ba9c032ec7d",
+        "type": "import"
+      },
+      {
+        "id": "6bc0c66d7fc314b0fc90ec6f04e99c925c30c056da24312a2d4a945ce917cee2",
+        "isBroken": false,
+        "isDynamic": false,
+        "isExternal": true,
+        "source": "3d15da2aeb08899c56c031c8497bb2d8c2bf756a2e8a5eaaa3c5240dcfae838a",
+        "target": "95dfeb5f59c8428a1bfb5e9b60f78e146f6153518e8aadfc25e65e3b7e8e88ce",
+        "type": "import"
+      },
+      {
+        "id": "6d1d3f3a774289b966416b750ade5dd00f6393d84ca314b28a3e932a2373b268",
+        "isBroken": false,
+        "isDynamic": false,
+        "isExternal": true,
+        "source": "887ee28d73bbe7bfd0834e40cf2907214da8bdf7d67c6c30045ed283f57e39b5",
+        "target": "9ff6a3150b1f334cb41cc41ac7c8364ff06b7664faf2ef0cc5fb7c38d7d2f300",
+        "type": "import"
+      },
+      {
+        "id": "71e82825b1dc0117c6ad7ce88210fa52d39e0a6711e081a65fe668b1b455a502",
+        "isBroken": false,
+        "isDynamic": false,
+        "isExternal": true,
+        "source": "2af22302e288ca88c8deaa9cb6d8ebd11f887b0cf2426241cfe54971c84c5ae1",
+        "target": "2e2f6a49e2aa8e8304b1b5514b8375571109a68aacad9cdd00980ccc4ad15af3",
+        "type": "import"
+      },
+      {
+        "id": "786ebb0186513e0f955ec6508b8160687729e5f4c2effd16aa1a05c05e628ed9",
+        "isBroken": false,
+        "isDynamic": false,
+        "isExternal": true,
+        "source": "887ee28d73bbe7bfd0834e40cf2907214da8bdf7d67c6c30045ed283f57e39b5",
+        "target": "fa8ce82dd49ac50cfe6f10a4e2317c0f294e98b52449c48f782a5ad851fb2bfb",
+        "type": "import"
+      },
+      {
+        "id": "841da3cdd4e86645c4eeadc001b211c88afb24c1253edf858d3cd82b72623c7f",
+        "isBroken": false,
+        "isDynamic": false,
+        "isExternal": true,
+        "source": "48f6cd9a81ca48243b1b893a934c170de7efdc0c2f1e844182a1dc72387d322c",
+        "target": "95e0b7608dbd8822b6810d72a092fe479d9e0e86849c44a91c6ce601a6e72b8d",
+        "type": "import"
+      },
+      {
+        "id": "88af76aa468dd35c70fc6ce08d93675fa7aaa9eb5ed9da133b2ac18dd3f0ec8b",
+        "isBroken": false,
+        "isDynamic": false,
+        "isExternal": true,
+        "source": "fa93f4365d7b46f3729b8d1a190cfd4f26a4e2fea6aaaeb06c5f3a5857516c6d",
+        "target": "95e0b7608dbd8822b6810d72a092fe479d9e0e86849c44a91c6ce601a6e72b8d",
+        "type": "import"
+      },
+      {
+        "id": "8c783699b01552987894aac4dc969a6ee8455cb0273b4c300474da3e83ed6060",
+        "isBroken": false,
+        "isDynamic": false,
+        "isExternal": false,
+        "source": "3d15da2aeb08899c56c031c8497bb2d8c2bf756a2e8a5eaaa3c5240dcfae838a",
+        "target": "481c7a10a65484a84f557dea7184b96ca19dc51f281e519089f4d447f4019dfc",
+        "type": "import"
+      },
+      {
+        "id": "93637cbf8a133f612245a47757d0ec184b2f6e6ed8e6b89f442559f8b4c19093",
+        "isBroken": false,
+        "isDynamic": false,
+        "isExternal": true,
+        "source": "e024e12b02c82cb44e0941efb014c20ef0c804bafc02a1a480d4642f8a5ab3b2",
+        "target": "95e0b7608dbd8822b6810d72a092fe479d9e0e86849c44a91c6ce601a6e72b8d",
+        "type": "import"
+      },
+      {
+        "id": "984f1ee84181d6677968d3bc7496a890056955e2ff6ac25a35742526d6be6299",
+        "isBroken": false,
+        "isDynamic": false,
+        "isExternal": true,
+        "source": "887ee28d73bbe7bfd0834e40cf2907214da8bdf7d67c6c30045ed283f57e39b5",
+        "target": "14f0ff256ac15678c5b63a2529df0632f96f5d30c1ae5019d97e6312a476f616",
+        "type": "import"
+      },
+      {
+        "id": "9a379330edd663196b40cdbd3b3303a8c62439ad45bae1679faa68d88ec711be",
+        "isBroken": false,
+        "isDynamic": false,
+        "isExternal": true,
+        "source": "fa93f4365d7b46f3729b8d1a190cfd4f26a4e2fea6aaaeb06c5f3a5857516c6d",
+        "target": "2e2f6a49e2aa8e8304b1b5514b8375571109a68aacad9cdd00980ccc4ad15af3",
+        "type": "import"
+      },
+      {
+        "id": "a044fbae7fd6f920a2fa376654b45fffde36bc3fec1d9e35456a4395f23d5c01",
+        "isBroken": false,
+        "isDynamic": false,
+        "isExternal": true,
+        "source": "001e0e58e3258a1fd9559dac3cdb97f5a2b15d36addda5d83e469004db7d4041",
+        "target": "e3c2fd4483b167ab08bf515bc5e36553eab1785c987c07c6b21fa047d1e3c3ad",
+        "type": "import"
+      },
+      {
+        "id": "a25471db07f7ba883c96bb7de33f228c2e17a4058609c5b17fcc1ad79badd872",
+        "isBroken": true,
+        "isDynamic": false,
+        "isExternal": false,
+        "source": "3d15da2aeb08899c56c031c8497bb2d8c2bf756a2e8a5eaaa3c5240dcfae838a",
+        "target": "8e4f54d7919a6d3447ada2c5470add12ea57bb54db52507c3abd1ba2752e6b18",
+        "type": "import"
+      },
+      {
+        "id": "a7a56b024ede00274e91ecb8451b8f7c12a7dcfea4bf18aac8d9c9c802b33d66",
+        "isBroken": false,
+        "isDynamic": false,
+        "isExternal": true,
+        "source": "2af22302e288ca88c8deaa9cb6d8ebd11f887b0cf2426241cfe54971c84c5ae1",
+        "target": "95e0b7608dbd8822b6810d72a092fe479d9e0e86849c44a91c6ce601a6e72b8d",
+        "type": "import"
+      },
+      {
+        "id": "adba2c4d4c7cb4bf20449c79589de5b3783ea9149ba37f111adcf11deaf07ba2",
+        "isBroken": false,
+        "isDynamic": false,
+        "isExternal": true,
+        "source": "27f9789282be6c652b0bff79c84684fefaed97a61240be03cd85efe29e3f0668",
+        "target": "c8546055294b732c6b5c973a57c3ef775265dbd5d47dd6996a629f54d040adb6",
+        "type": "import"
+      },
+      {
+        "id": "b3057d9d6a17e707dc2b01bf1bfc5dc3af6f5396e93794d25c56858d1e4d7fde",
+        "isBroken": false,
+        "isDynamic": false,
+        "isExternal": false,
+        "source": "481c7a10a65484a84f557dea7184b96ca19dc51f281e519089f4d447f4019dfc",
+        "target": "eeeea4be2684c85a3c6b7b851543025335e845b23ff561f2f6c07c8b38f1b4f6",
+        "type": "import"
+      },
+      {
+        "id": "b309dd4abf263cda9dee6e20c35033e74d410bdeaf5bc77d6d4fc6a08a884866",
+        "isBroken": false,
+        "isDynamic": false,
+        "isExternal": false,
+        "source": "eeeea4be2684c85a3c6b7b851543025335e845b23ff561f2f6c07c8b38f1b4f6",
+        "target": "b3f32589c7c0c31efc0ce2fb08b3afdd1986678a37fb520a6c030807e7a08693",
+        "type": "import"
+      },
+      {
+        "id": "b49c99b05573a9c669c0e61b9e6f392dd822ade38caab2c9290b148c0da28500",
+        "isBroken": false,
+        "isDynamic": false,
+        "isExternal": true,
+        "source": "887ee28d73bbe7bfd0834e40cf2907214da8bdf7d67c6c30045ed283f57e39b5",
+        "target": "a1c4f7bf034b2253e49590c9abe984351cc43f6d74497cc4295b0ab1ccf763c7",
+        "type": "import"
+      },
+      {
+        "id": "c38d3f64b4fce3345fd929e2374b56b1c46b52664d4d6c02acf457bcfad80c81",
+        "isBroken": false,
+        "isDynamic": false,
+        "isExternal": false,
+        "source": "fa93f4365d7b46f3729b8d1a190cfd4f26a4e2fea6aaaeb06c5f3a5857516c6d",
+        "target": "001e0e58e3258a1fd9559dac3cdb97f5a2b15d36addda5d83e469004db7d4041",
+        "type": "import"
+      },
+      {
+        "id": "c8757787605424e182b289d426ac836a2011d90999255e7a94f75e4ad221379b",
+        "isBroken": false,
+        "isDynamic": false,
+        "isExternal": false,
+        "source": "b3f32589c7c0c31efc0ce2fb08b3afdd1986678a37fb520a6c030807e7a08693",
+        "target": "ae64d0e07205bd40ff87616cd3c31514403e8a21b61e2fa576bad187fae897e2",
+        "type": "import"
+      },
+      {
+        "id": "c944895375ac72814f959fd5cdece491c965c65c27f2387241b8626ee4db8f84",
+        "isBroken": false,
+        "isDynamic": false,
+        "isExternal": true,
+        "source": "3d15da2aeb08899c56c031c8497bb2d8c2bf756a2e8a5eaaa3c5240dcfae838a",
+        "target": "95e0b7608dbd8822b6810d72a092fe479d9e0e86849c44a91c6ce601a6e72b8d",
+        "type": "import"
+      },
+      {
+        "id": "cd8b1bf5d6f1332b713d3379e9192289f4a36c731f4bfdb50fcfec18011d7000",
+        "isBroken": false,
+        "isDynamic": false,
+        "isExternal": false,
+        "source": "48f6cd9a81ca48243b1b893a934c170de7efdc0c2f1e844182a1dc72387d322c",
+        "target": "2a04b333b3889c992181a52d08767887c53daad88babd7c5b49f6c0cde3aadd1",
+        "type": "import"
+      },
+      {
+        "id": "d0adc039a4474f1d14ea313dd42b6d6e3e0009c3e3c0fbfd9128f13933c3af90",
+        "isBroken": false,
+        "isDynamic": false,
+        "isExternal": true,
+        "source": "b3f32589c7c0c31efc0ce2fb08b3afdd1986678a37fb520a6c030807e7a08693",
+        "target": "95e0b7608dbd8822b6810d72a092fe479d9e0e86849c44a91c6ce601a6e72b8d",
+        "type": "import"
+      },
+      {
+        "id": "d291cca378aa8d7802b484f590e98b8a484cdf31c77211e03032e60b396de6a6",
+        "isBroken": false,
+        "isDynamic": false,
+        "isExternal": false,
+        "source": "eeeea4be2684c85a3c6b7b851543025335e845b23ff561f2f6c07c8b38f1b4f6",
+        "target": "fa93f4365d7b46f3729b8d1a190cfd4f26a4e2fea6aaaeb06c5f3a5857516c6d",
+        "type": "import"
+      },
+      {
+        "id": "d2de775731543552839caa6fadd5e20014c3ff979d78ae933008f1ad008a685e",
+        "isBroken": false,
+        "isDynamic": false,
+        "isExternal": false,
+        "source": "e024e12b02c82cb44e0941efb014c20ef0c804bafc02a1a480d4642f8a5ab3b2",
+        "target": "001e0e58e3258a1fd9559dac3cdb97f5a2b15d36addda5d83e469004db7d4041",
+        "type": "import"
+      },
+      {
+        "id": "f1ea9b40b697e144047f8163ff71ed40a50d03a2f8ec80fc863ab2a644b8d1a0",
+        "isBroken": false,
+        "isDynamic": false,
+        "isExternal": false,
+        "source": "f62278676189c430f3b1af51bb8c87b2d03b10309509451653ed96bbfb56b7ed",
+        "target": "001e0e58e3258a1fd9559dac3cdb97f5a2b15d36addda5d83e469004db7d4041",
+        "type": "import"
+      },
+      {
+        "id": "f450097bb27443b5a0e9c5646ec5edf43140460fb13e338d3e0689be51478be7",
+        "isBroken": false,
+        "isDynamic": false,
+        "isExternal": false,
+        "source": "eeeea4be2684c85a3c6b7b851543025335e845b23ff561f2f6c07c8b38f1b4f6",
+        "target": "48f6cd9a81ca48243b1b893a934c170de7efdc0c2f1e844182a1dc72387d322c",
+        "type": "import"
+      },
+      {
+        "id": "fa5c63ce212696acdf074f75a40b31ddb67f957c0e31da9890016617285eb2f1",
+        "isBroken": false,
+        "isDynamic": false,
+        "isExternal": true,
+        "source": "f62278676189c430f3b1af51bb8c87b2d03b10309509451653ed96bbfb56b7ed",
+        "target": "e3c2fd4483b167ab08bf515bc5e36553eab1785c987c07c6b21fa047d1e3c3ad",
+        "type": "import"
+      }
+    ],
+    "statistics": {
+      "averageFanIn": 1.3333333333333333,
+      "averageFanOut": 1.3333333333333333,
+      "connectedComponents": 4,
+      "cycles": 0,
+      "edges": 40,
+      "maxDepth": 5,
+      "nodes": 30,
+      "orphans": 1
+    }
+  },
+  "analysis": {
+    "architectureSummary": "The project demonstrates a strong overall architecture across 30 modules with no dependency cycles. Most opportunities are concentrated in architecture, while complexity remains healthy.",
+    "benchmark": {
+      "reason": "No empirical benchmark corpus was supplied for this analysis.",
+      "status": "unavailable"
+    },
+    "hotspots": [
+      {
+        "estimatedScoreRecovery": 0.3,
+        "file": "src/components/Button.jsx",
+        "findingCount": 1,
+        "priorityScore": 10,
+        "recommendation": "Delete the module or integrate it into the relevant feature.",
+        "severityCounts": {
+          "critical": 0,
+          "error": 0,
+          "info": 0,
+          "warning": 1
+        }
+      },
+      {
+        "estimatedScoreRecovery": 0,
+        "file": "src/context/AuthContext.jsx",
+        "findingCount": 1,
+        "priorityScore": 1,
+        "recommendation": "Remove the export or document its external consumer.",
+        "severityCounts": {
+          "critical": 0,
+          "error": 0,
+          "info": 1,
+          "warning": 0
+        }
+      }
+    ],
+    "history": [
+      {
+        "generatedAt": "2026-07-29T08:31:25.631Z",
+        "overallScore": 98.52,
+        "reportPath": "history/report-2026-07-29T08-32-03-982Z.html"
+      },
+      {
+        "generatedAt": "2026-07-29T08:32:03.979Z",
+        "overallScore": 98.52,
+        "reportPath": "history/report-2026-07-29T08-33-44-951Z.html"
+      },
+      {
+        "generatedAt": "2026-07-29T08:33:44.943Z",
+        "overallScore": 98.52,
+        "reportPath": "history/report-2026-07-29T08-35-09-366Z.html"
+      },
+      {
+        "generatedAt": "2026-07-29T08:35:09.364Z",
+        "overallScore": 98.52
+      }
+    ],
+    "policies": [],
+    "policyConfiguration": {
+      "presets": [],
+      "source": "none"
+    },
+    "risks": [],
+    "quickWins": [
+      {
+        "estimatedScoreRecovery": 0.3,
+        "file": "src/components/Button.jsx",
+        "findingCount": 1,
+        "recommendation": "Delete the module or integrate it into the relevant feature."
+      },
+      {
+        "estimatedScoreRecovery": 0,
+        "file": "src/context/AuthContext.jsx",
+        "findingCount": 1,
+        "recommendation": "Remove the export or document its external consumer."
+      }
+    ],
+    "roadmap": [],
+    "strengths": [
+      "8 of 8 score categories are at or above 90.",
+      "No circular module dependencies across 30 modules.",
+      "No critical architecture findings were detected."
+    ],
+    "weaknesses": []
+  }
+}

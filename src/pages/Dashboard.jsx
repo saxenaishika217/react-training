@@ -1,14 +1,19 @@
-import { useDispatch } from "react-redux";
-import { logout } from "../store/slices/authSlice";
-import { useNavigate } from "react-router-dom";
+import { useDispatch } from 'react-redux';
+import { logout } from '../store/slices/authSlice';
+import { useNavigate } from 'react-router-dom';
+import { useEffect } from 'react';
 
 function Dashboard() {
   const dispatch = useDispatch();
   const navigate = useNavigate();
 
+  useEffect(() => {
+    document.title = 'Employee Dashboard';
+  }, []);
+
   const handleLogout = () => {
     dispatch(logout());
-    navigate("/login");
+    navigate('/login');
   };
 
   return (
@@ -17,17 +22,16 @@ function Dashboard() {
         <h1>Welcome, Admin!</h1>
         <p>Manage your employees from here.</p>
 
-        <button onClick={() => alert("Feature Coming Soon!")}>
+        <button
+          id="add-employee"
+          onClick={() => navigate('/add-employee')}
+        >
           Add Employee
         </button>
 
-        <button onClick={() => navigate("/")}>
-          View Employees
-        </button>
+        <button onClick={() => navigate('/')}>View Employees</button>
 
-        <button onClick={handleLogout}>
-          Logout
-        </button>
+        <button onClick={handleLogout}>Logout</button>
       </div>
     </div>
   );

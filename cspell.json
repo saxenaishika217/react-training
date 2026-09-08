@@ -1,0 +1,16 @@
+{
+  "dictionaryDefinitions": [
+    {
+      "name": "custom-words",
+      "path": "./cspell.txt"
+    }
+  ],
+  "dictionaries": ["custom-words"],
+  "ignorePaths": [
+    "node_modules/**",
+    "dist/**",
+    "coverage/**",
+    "playwright-report/**",
+    "**/*.svg"
+  ]
+}

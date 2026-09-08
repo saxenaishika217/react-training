@@ -1,62 +1,56 @@
-import { useNavigate } from "react-router-dom";
-import UserCard from "../components/UserCard";
-
+import { useEffect, useState } from 'react';
+import { useNavigate } from 'react-router-dom';
+import UserCard from '../components/UserCard';
 
 function Home() {
+  const [users, setUsers] = useState([]);
+  useEffect(()=> {
+    fetch('http://localhost:3000/api/employees').then((response)=> response.json()).then((data)=>setUsers(data));
+  },[]);
 
-  const users = [
-  {
-    id: 1,
-    name: "Neal",
-    role: "Frontend Developer",
-    experience: "1 Year",
-  },
-  {
-    id: 2,
-    name: "John",
-    role: "Backend Developer",
-    experience: "3 Years",
-  },
-  {
-    id: 3,
-    name: "Emily",
-    role: "QA Engineer",
-    experience: "2 Years",
-  },
-];
+  const handleDelete = async (id) => {
+  const response = await fetch(
+    `http://localhost:3000/api/employees/${id}`,
+    {
+      method: 'DELETE',
+    }
+  );
 
-const navigate = useNavigate();
+  if (response.ok) {
+    setUsers((currentUsers) =>
+      currentUsers.filter((user) => user.id !== id)
+    );
+  }
+};
 
- return (
-  <div className="home-container">
-    <h1>Employee Portal</h1>
 
-    <p className="home-subtitle">
-      Manage your employees efficiently.
-    </p>
 
-    <button
-      className="dashboard-btn"
-      onClick={() => navigate("/dashboard")}
-    >
-      View Dashboard
-    </button>
+  const navigate = useNavigate();
 
-    <h2 className="employee-heading">
-      Employee List
-    </h2>
+  return (
+    <div className="home-container">
+      <h1>Employee Portal</h1>
 
-    {users.map((user) => (
-      <UserCard
-        key={user.id}
-        name={user.name}
-        role={user.role}
-        experience={user.experience}
-      />
-    ))}
-  </div>
-);
+      <p className="home-subtitle">Manage your employees efficiently.</p>
 
+      <button className="dashboard-btn" onClick={() => navigate('/dashboard')}>
+        View Dashboard
+      </button>
+
+      <h2 className="employee-heading">Employee List</h2>
+
+      {users.map((user) => (
+        <UserCard
+          key={user.id}
+          id={user.id}
+          name={user.name}
+          role={user.role}
+          experience={user.experience}
+          onDelete={handleDelete}
+        />
+      ))}
+    </div>
+  );
 }
 
 export default Home;

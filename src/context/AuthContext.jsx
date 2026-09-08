@@ -1,6 +1,9 @@
-import { createContext, useState } from "react";
+import { useState } from 'react';
 
-export const AuthContext = createContext();
+import { AuthContext } from './AuthContext';
+import PropTypes from 'prop-types';
+
+AuthProvider.propTypes = { children: PropTypes.node.isRequired };
 
 function AuthProvider({ children }) {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
