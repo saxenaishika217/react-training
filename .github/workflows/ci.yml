@@ -1,0 +1,91 @@
+name: CI
+
+on:
+  push:
+    branches:
+      - "**"
+  pull_request:
+    branches:
+      - "**"
+
+jobs:
+  frontend:
+    name: Frontend Checks
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: npm
+
+      - name: Install frontend dependencies
+        run: npm ci
+
+      - name: Run ESLint
+        run: npm run lint
+
+      - name: Run CSpell
+        run: npm run spellcheck
+
+      - name: Check Prettier
+        run: npx prettier --check .
+
+      - name: Build frontend
+        run: npm run build
+
+      - name: Start frontend
+        run: npm run dev -- --host 0.0.0.0 > frontend.log 2>&1 &
+
+      - name: Install Playwright browsers
+        run: npx playwright install --with-deps
+
+      - name: Run Playwright tests
+        run: |
+          for i in {1..30}; do
+            if curl -s http://localhost:5173 > /dev/null; then
+              break
+            fi
+            sleep 2
+          done
+          npx playwright test
+
+  backend:
+    name: Backend Checks
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: npm
+          cache-dependency-path: server/package-lock.json
+
+      - name: Install backend dependencies
+        working-directory: server
+        run: npm ci
+
+      - name: Check backend syntax
+        run: node --check server/index.js
+
+      - name: Start backend
+        working-directory: server
+        run: node index.js > server.log 2>&1 &
+
+      - name: Check backend API
+        run: |
+          for i in {1..30}; do
+            if curl -s http://localhost:3000 > /dev/null; then
+              break
+            fi
+            sleep 2
+          done
+          curl -f http://localhost:3000
