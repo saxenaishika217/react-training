@@ -5,6 +5,8 @@ import Home from '../pages/Home';
 import Login from '../pages/Login';
 import Dashboard from '../pages/Dashboard';
 import ProtectedRoute from '../components/ProtectedRoute';
+import AddEmployee from '../pages/AddEmployee';
+import EditEmployee from '../pages/EditEmployee';
 
 function AppRoutes() {
   return (
@@ -21,6 +23,8 @@ function AppRoutes() {
           }
         />
       </Route>
+      <Route path="/add-employee" element={<AddEmployee />} />
+      <Route path="/edit-employee/:id" element={<EditEmployee />} />
     </Routes>
   );
 }

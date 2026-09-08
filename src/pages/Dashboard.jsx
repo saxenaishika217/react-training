@@ -24,10 +24,7 @@ function Dashboard() {
 
         <button
           id="add-employee"
-          onClick={() =>
-            //eslint-disable-next-line no-alert
-            alert('Feature Coming Soon!')
-          }
+          onClick={() => navigate('/add-employee')}
         >
           Add Employee
         </button>
