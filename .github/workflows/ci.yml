@@ -36,28 +36,31 @@ jobs:
         run: npx prettier --check .
 
       - name: Build frontend
-  run: npm run build
+        run: npm run build
 
-- name: Install backend dependencies
-  working-directory: server
-  run: npm ci
+      - name: Build frontend
+        run: npm run build
 
-- name: Start backend
-  working-directory: server
-  run: node index.js > server.log 2>&1 &
+      - name: Install backend dependencies
+        working-directory: server
+        run: npm ci
 
-- name: Wait for backend
-  run: |
-    for i in {1..30}; do
-      if curl -s http://localhost:3000 > /dev/null; then
-        break
-      fi
-      sleep 2
-    done
-    curl -f http://localhost:3000
+      - name: Start backend
+        working-directory: server
+        run: node index.js > server.log 2>&1 &
 
-- name: Start frontend
-  run: npm run dev -- --host 0.0.0.0 > frontend.log 2>&1 &
+      - name: Wait for backend
+        run: |
+          for i in {1..30}; do
+            if curl -s http://localhost:3000 > /dev/null; then
+              break
+            fi
+            sleep 2
+          done
+          curl -f http://localhost:3000
+
+      - name: Start frontend
+        run: npm run dev -- --host 0.0.0.0 > frontend.log 2>&1 &
 
 
       - name: Install Playwright browsers
