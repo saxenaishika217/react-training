@@ -12,16 +12,16 @@
 #   - workers.enabled
 #   - agents.maxConcurrent and defaultTimeout
 
-version: "3.14.1"
+version: '3.14.1'
 
 project:
-  name: "react-training"
+  name: 'react-training'
   root: "C:\\Users\\ishika.saxena\\Desktop\\React-Training"
-  type: "single"
+  type: 'single'
 
 learning:
   enabled: true
-  embeddingModel: "transformer"
+  embeddingModel: 'transformer'
   hnswConfig:
     M: 8
     efConstruction: 100
@@ -31,7 +31,7 @@ learning:
   pretrainedPatterns: true
 
 routing:
-  mode: "rules"
+  mode: 'rules'
   confidenceThreshold: 0.7
   feedbackEnabled: true
 
@@ -41,12 +41,12 @@ advisor:
   # provider: "openrouter"        # openrouter | claude | ollama (auto-detected if not set)
   # model: "anthropic/claude-opus-4.7"  # provider-specific model ID
   # maxUses: "3"                  # per-task advisor call cap
-  redact: "strict"                # strict | balanced | off
+  redact: 'strict' # strict | balanced | off
 
 workers:
   enabled:
-    - "pattern-consolidator"
-    - "routing-accuracy-monitor"
+    - 'pattern-consolidator'
+    - 'routing-accuracy-monitor'
   intervals:
     pattern-consolidator: 1800000
     coverage-gap-scanner: 3600000
@@ -68,18 +68,18 @@ skills:
 
 domains:
   enabled:
-    - "test-generation"
-    - "test-execution"
-    - "coverage-analysis"
-    - "quality-assessment"
-    - "defect-intelligence"
-    - "requirements-validation"
-    - "code-intelligence"
-    - "security-compliance"
-    - "contract-testing"
-    - "visual-accessibility"
-    - "chaos-resilience"
-    - "learning-optimization"
+    - 'test-generation'
+    - 'test-execution'
+    - 'coverage-analysis'
+    - 'quality-assessment'
+    - 'defect-intelligence'
+    - 'requirements-validation'
+    - 'code-intelligence'
+    - 'security-compliance'
+    - 'contract-testing'
+    - 'visual-accessibility'
+    - 'chaos-resilience'
+    - 'learning-optimization'
   disabled:
 
 agents:
