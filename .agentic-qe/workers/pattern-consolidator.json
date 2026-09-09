@@ -1,0 +1,8 @@
+{
+  "name": "pattern-consolidator",
+  "enabled": true,
+  "interval": 1800000,
+  "projectRoot": "C:\\Users\\ishika.saxena\\Desktop\\React-Training",
+  "dataDir": "C:\\Users\\ishika.saxena\\Desktop\\React-Training\\.agentic-qe\\data",
+  "createdAt": "2026-09-09T04:45:42.028Z"
+}

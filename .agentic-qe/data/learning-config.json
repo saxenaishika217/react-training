@@ -1,0 +1,13 @@
+{
+  "embeddingModel": "transformer",
+  "hnswConfig": {
+    "M": 8,
+    "efConstruction": 100,
+    "efSearch": 50
+  },
+  "qualityThreshold": 0.7,
+  "promotionThreshold": 3,
+  "databasePath": "C:\\Users\\ishika.saxena\\Desktop\\React-Training\\.agentic-qe\\data\\memory.db",
+  "hnswIndexPath": "C:\\Users\\ishika.saxena\\Desktop\\React-Training\\.agentic-qe\\data\\hnsw\\index.bin",
+  "initialized": "2026-09-09T04:45:33.828Z"
+}

@@ -1,0 +1,22 @@
+{
+  "version": "3.14.1",
+  "maxConcurrent": 2,
+  "workers": {
+    "pattern-consolidator": {
+      "name": "pattern-consolidator",
+      "enabled": true,
+      "interval": 1800000,
+      "lastRun": null,
+      "status": "pending"
+    },
+    "routing-accuracy-monitor": {
+      "name": "routing-accuracy-monitor",
+      "enabled": true,
+      "interval": 900000,
+      "lastRun": null,
+      "status": "pending"
+    }
+  },
+  "createdAt": "2026-09-09T04:45:42.027Z",
+  "daemonPid": null
+}

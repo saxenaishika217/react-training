@@ -26,13 +26,11 @@ test('GET /api/employees/:id returns 404 for unknown employee', async () => {
 });
 
 test('POST /api/employees creates an employee', async () => {
-  const response = await request(app)
-    .post('/api/employees')
-    .send({
-      name: 'Test Employee',
-      role: 'QA Engineer',
-      experience: '1 Year',
-    });
+  const response = await request(app).post('/api/employees').send({
+    name: 'Test Employee',
+    role: 'QA Engineer',
+    experience: '1 Year',
+  });
 
   assert.strictEqual(response.statusCode, 201);
   assert.strictEqual(response.body.name, 'Test Employee');
@@ -40,13 +38,11 @@ test('POST /api/employees creates an employee', async () => {
 });
 
 test('PUT /api/employees/:id updates an employee', async () => {
-  const response = await request(app)
-    .put('/api/employees/1')
-    .send({
-      name: 'Emily Updated',
-      role: 'Senior QA Engineer',
-      experience: '3 Years',
-    });
+  const response = await request(app).put('/api/employees/1').send({
+    name: 'Emily Updated',
+    role: 'Senior QA Engineer',
+    experience: '3 Years',
+  });
 
   assert.strictEqual(response.statusCode, 200);
   assert.strictEqual(response.body.name, 'Emily Updated');
@@ -54,11 +50,9 @@ test('PUT /api/employees/:id updates an employee', async () => {
 });
 
 test('PATCH /api/employees/:id partially updates an employee', async () => {
-  const response = await request(app)
-    .patch('/api/employees/1')
-    .send({
-      role: 'QA Lead',
-    });
+  const response = await request(app).patch('/api/employees/1').send({
+    role: 'QA Lead',
+  });
 
   assert.strictEqual(response.statusCode, 200);
   assert.strictEqual(response.body.role, 'QA Lead');
@@ -68,10 +62,7 @@ test('DELETE /api/employees/:id deletes an employee', async () => {
   const response = await request(app).delete('/api/employees/1');
 
   assert.strictEqual(response.statusCode, 200);
-  assert.strictEqual(
-    response.body.message,
-    'Employee deleted successfully'
-  );
+  assert.strictEqual(response.body.message, 'Employee deleted successfully');
 });
 
 test('DELETE /api/employees/:id returns 404 for unknown employee', async () => {
