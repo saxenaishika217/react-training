@@ -16,7 +16,7 @@ version: "3.14.1"
 
 project:
   name: "react-training"
-  root: "C:\Users\ishika.saxena\Desktop\React-Training"
+  root: "C:\\Users\\ishika.saxena\\Desktop\\React-Training"
   type: "single"
 
 learning:
