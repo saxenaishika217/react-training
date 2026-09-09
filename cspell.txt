@@ -10,3 +10,5 @@ Admin
 domcontentloaded
 Isha
 arcovia
+HNSW
+sublinear
