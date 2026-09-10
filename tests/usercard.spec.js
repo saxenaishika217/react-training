@@ -1,25 +1,24 @@
 import { test, expect } from '@playwright/test';
 
-test.describe('User Card', () => {
-  test.beforeEach(async ({ page }) => {
-    await page.goto('http://localhost:5173/');
-  });
+test('all API employees are displayed correctly', async ({ page }) => {
+  const apiResponse = await page.request.get(
+    'http://localhost:3000/api/employees'
+  );
 
-  test('Neal card is visible', async ({ page }) => {
-    await expect(page.getByRole('heading', { name: 'Neal' })).toBeVisible();
-    await expect(page.getByText('Role: Frontend Developer')).toBeVisible();
-    await expect(page.getByText('Experience: 1 Year')).toBeVisible();
-  });
+  expect(apiResponse.ok()).toBeTruthy();
 
-  test('John card is visible', async ({ page }) => {
-    await expect(page.getByRole('heading', { name: 'John' })).toBeVisible();
-    await expect(page.getByText('Role: Backend Developer')).toBeVisible();
-    await expect(page.getByText('Experience: 3 Years')).toBeVisible();
-  });
+  const employees = await apiResponse.json();
 
-  test('Emily card is visible', async ({ page }) => {
-    await expect(page.getByRole('heading', { name: 'Emily' })).toBeVisible();
-    await expect(page.getByText('Role: QA Engineer')).toBeVisible();
-    await expect(page.getByText('Experience: 2 Years')).toBeVisible();
-  });
+  await page.goto('http://localhost:5173/');
+
+  for (const employee of employees) {
+    const card = page.locator(
+      `.user-card[data-employee-id="${employee.id}"]`
+    );
+
+    await expect(card).toBeVisible();
+    await expect(card).toContainText(employee.name);
+    await expect(card).toContainText(`Role: ${employee.role}`);
+    await expect(card).toContainText(`Experience: ${employee.experience}`);
+  }
 });

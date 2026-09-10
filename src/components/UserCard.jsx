@@ -5,11 +5,8 @@ import PropTypes from 'prop-types';
 function UserCard({ id, name, role, experience, onDelete }) {
   const navigate = useNavigate();
   return (
-    <div className="user-card">
-      <h2>{name}</h2>
-      <p>Role: {role}</p>
-      <p>Experience: {experience}</p>
-
+    <div className="user-card" data-employee-id={id}>
+      
       <button onClick={() => onDelete(id)}>Delete</button>
 
       <button onClick={() => navigate(`/edit-employee/${id}`)}>Edit</button>
